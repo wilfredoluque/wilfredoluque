@@ -55,6 +55,8 @@ def create_app():
 
     return app
 
+# ✅ Aquí agregamos la línea que faltaba
+app = create_app()
+
 if __name__ == "__main__":
-    app = create_app()
     app.run(debug=True)
