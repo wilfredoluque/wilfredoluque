@@ -838,4 +838,47 @@ header .logo img {
         gap: 15px;
     }
 }
+/* Typing effect responsive */
+.typing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+}
+
+.typing-text {
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 2rem; /* base tamaño para móvil */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* Ajuste para pantallas grandes */
+@media (min-width: 992px) {
+    .typing-text {
+        font-size: 2.8rem;
+    }
+}
+
+/* Animación de máquina de escribir */
+.typing-text::before {
+    content: "";
+    width: 1px;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    border-radius: 4px;
+    animation: titilar 0.36s infinite alternate;
+}
+
+@keyframes titilar {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 

@@ -2,6 +2,13 @@
 {% block title %}Inicio - WilAInova{% endblock %}
 
 {% block content %}
+
+<!-- Pantalla de carga -->
+<div id="loading-screen">
+  <h2>Cargando WilAInova...</h2>
+</div>
+
+<!-- Hero Section -->
 <section class="hero">
   <div class="hero-container">
     <div class="hero-img">
@@ -24,5 +31,97 @@
     </div>
   </div>
 </section>
+
+<!-- About Section -->
+<section class="about">
+  <div class="about-container">
+    <div class="about-img">
+      <img src="{{ url_for('static', filename='images/wil.jpeg') }}" alt="Sobre mí">
+    </div>
+    <div class="about-text">
+      <h1>Sobre mí</h1>
+      <h2>Estudiante y Desarrollador Web</h2>
+      <p>Me especializo en proyectos que combinan funcionalidad y diseño profesional. Cada proyecto que construyo busca aportar valor real y experiencia práctica.</p>
+      <div class="skills">
+        <div class="skill">
+          <div class="skill-name">HTML/CSS</div>
+          <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-name">Python / Flask</div>
+          <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-name">JavaScript</div>
+          <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Section -->
+<section class="portfolio">
+  <h2 class="portfolio__title">Proyectos</h2>
+  <div class="portfolio__project-container">
+    <div class="portfolio__project" data-title="CENTRO DE CAPACITACION">
+      <div class="portfolio__project-overlay">
+        <h3>Centro de Capacitación</h3>
+        <a href="#" class="btn-project neon">Ver proyecto</a>
+      </div>
+    </div>
+    <div class="portfolio__project" data-title="Ventas">
+      <div class="portfolio__project-overlay">
+        <h3>Ventas</h3>
+        <a href="#" class="btn-project wave">Ver proyecto</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-form-pro">
+  <div class="contact-card">
+    <h2 class="form-title">Contáctame</h2>
+    <p class="form-subtitle">Envíame un mensaje y te responderé pronto</p>
+    <form method="POST" action="{{ url_for('contact') }}">
+      <input type="text" name="name" placeholder="Nombre" required>
+      <input type="email" name="email" placeholder="Correo" required>
+      <textarea name="message" placeholder="Mensaje" required></textarea>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </div>
+</section>
+
+<!-- WhatsApp Botón -->
+<a href="https://wa.me/59173081556" class="whatsapp-btn" target="_blank">
+  <i class="fa fa-whatsapp"></i>
+</a>
+
+<!-- Scripts -->
+<script>
+  // Pantalla de carga
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loading-screen");
+    loader.style.opacity = 0;
+    setTimeout(() => loader.style.display = "none", 500);
+  });
+
+  // Menú hamburguesa
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+  if(menuToggle){
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  }
+
+  // Ping automático para mantener la app despierta en Render
+  setInterval(() => {
+    fetch(window.location.href)
+      .then(res => console.log("Ping activo ✅"))
+      .catch(err => console.log("Ping fallido ❌", err));
+  }, 600000); // cada 10 minutos
+</script>
 
 {% endblock %}
