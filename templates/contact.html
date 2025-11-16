@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Contacto - WilAInova{% endblock %}
+
+{% block content %}
+<section class="contact-form-pro">
+  <div class="contact-card">
+    <h2 class="form-title">Contáctame</h2>
+    <p class="form-subtitle">Escríbeme y te responderé pronto</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <p class="{{ category }}">{{ msg }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="post" action="{{ url_for('contact') }}">
+      <input type="text" name="name" placeholder="Nombre" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Mensaje" required></textarea>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

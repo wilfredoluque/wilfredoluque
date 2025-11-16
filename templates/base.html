@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}WilAInova{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="WilAInova">
+        </a>
+    </div>
+
+    <!-- Botón menú móvil -->
+    <button class="menu-toggle" id="menuToggle">
+        ☰
+    </button>
+
+    <!-- Navegación -->
+    <nav id="navMenu">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Inicio</a></li>
+            <li><a href="{{ url_for('about') }}">Sobre mí</a></li>
+            <li><a href="{{ url_for('projects') }}">Proyectos</a></li>
+            <li><a href="{{ url_for('contact') }}">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<main>{% block content %}{% endblock %}</main>
+
+<a href="https://wa.me/59173081556" class="whatsapp-btn" target="_blank">💬</a>
+
+<footer>
+  <p>📞 +591 73081556 | ✉️ wilainova@gmail.com</p>
+  <p>&copy; 2025 WilAInova — Web & AI Developer</p>
+</footer>
+
+<!-- Carga todos los scripts al final para que el DOM esté listo -->
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/contact.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("open");
+    });
+</script>
+</body>
+</html>

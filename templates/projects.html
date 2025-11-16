@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Proyectos - WilAInova{% endblock %}
+
+{% block content %}
+<section class="portfolio">
+  <h2 class="portfolio__title">MIS PROYECTOS</h2>
+  <div class="portfolio__project-container">
+
+    <!-- Centro de Capacitación -->
+    <div class="portfolio__project" 
+         data-title="CENTRO DE CAPACITACION"
+         data-desc="SITIO WEB PARA CENTRO DE CAPACITACION."
+         data-images="static/images/centrocap.png,static/img/tienda2.png"
+         data-link="https://centrocapacitacion-1.onrender.com">
+      <div class="portfolio__project-overlay">
+        <h3>CENTRO DE CAPACITACION</h3>
+        <button class="btn-project wave open-modal">Ver Proyecto</button>
+        <a href="https://centrocapacitacion-1.onrender.com" target="_blank" class="btn-project neon">Ir al Proyecto</a>
+      </div>
+    </div>
+
+    <!-- Web Corporativa -->
+    <div class="portfolio__project" 
+         data-title="venta"
+         data-desc="Página para locales, canchas"
+         data-images="static/images/ventas.png,static/img/web2.png"
+         data-link="https://sistema-de-reservas-1.onrender.com">
+      <div class="portfolio__project-overlay">
+        <h3>SITIO WEB RESERVAS</h3>
+        <button class="btn-project wave open-modal">Ver Proyecto</button>
+        <a href="https://sistema-de-reservas-1.onrender.com" target="_blank" class="btn-project neon">Ir al Proyecto</a>
+      </div>
+    </div>
+
+    <!-- Portafolio Personal -->
+    <div class="portfolio__project" 
+         data-title="Ventas"
+         data-desc="SITIO WEB PARA VENTAS"
+         data-images="static/images/productos.png,static/img/port2.png"
+         data-link="https://ventas-1-olg0.onrender.com">
+      <div class="portfolio__project-overlay">
+        <h3>MINI SISTEMA DE VENTAS</h3>
+        <button class="btn-project wave open-modal">Ver Proyecto</button>
+        <a href="https://ventas-1-olg0.onrender.com" target="_blank" class="btn-project neon">Ir al Proyecto</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="project-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="modal-title"></h3>
+    <p id="modal-desc"></p>
+    <div id="modal-gallery" class="modal-gallery"></div>
+    <a id="modal-link" href="#" target="_blank" class="btn-project neon">Ir al Proyecto</a>
+  </div>
+</div>
+{% endblock %}

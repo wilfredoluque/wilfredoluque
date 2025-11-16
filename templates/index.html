@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Inicio - WilAInova{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-img">
+      <img src="{{ url_for('static', filename='images/wil.jpeg') }}" alt="Wilfredo Luque">
+    </div>
+
+    <div class="hero-text">
+
+      <div class="typing-container">
+          <h1 class="typing-text">Hola, soy Wilfredo Luque</h1>
+      </div>
+
+      <p>Estudiante de Ingeniería en Sistemas con enfoque en desarrollo web. Aprendo, mejoro y construyo proyectos que aportan valor real.</p>
+
+      <div class="hero-buttons">
+        <a class="btn" href="{{ url_for('projects') }}">Proyectos</a>
+        <a class="btn" href="https://wa.me/59173081556" target="_blank">WhatsApp</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
